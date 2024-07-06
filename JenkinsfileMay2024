@@ -1,12 +1,10 @@
 node{
     
-echo "Job name is: ${env.JOB_NAME}"
-echo "Build Number is: ${env.BUILD_NUMBER}"
-echo "Jenkins Home is: ${env.JENKINS_HOME}"
-echo "Build Number is: ${env.BUILD_NUMBER}"
+echo "Job name is: $JOB_NAME" 
+echo "Node name is: $NODE_NAME"
+echo "Jenkins Home url is: $JENKINS_HOME"
 
-    
-
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * *')])])
     
     def mavenHome = tool name: 'Maven_3.9.8'
 
