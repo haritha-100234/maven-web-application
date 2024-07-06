@@ -6,7 +6,7 @@ echo "Jenkins Home is: ${env.JENKINS_HOME}"
 echo "Build Number is: ${env.BUILD_NUMBER}"
 
     
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * *')])])
+
     
     def mavenHome = tool name: 'Maven_3.9.8'
 
